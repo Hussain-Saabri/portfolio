@@ -121,9 +121,7 @@ const Header = () => {
                                     <Mail size={24} strokeWidth={1.5} />
                                 </motion.a>
                             </div>
-                            <p className="text-[10px] uppercase tracking-[0.4em] text-white/20 font-bold">
-                                Based in Pakistan
-                            </p>
+                            
                         </motion.div>
                     </motion.div>
                 )}
