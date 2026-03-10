@@ -3,14 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 
 const Header = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const navLinks = [
         { name: 'About', href: '#about' },
@@ -20,83 +13,97 @@ const Header = () => {
     ];
 
     return (
-        <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'py-4 bg-white/10 backdrop-blur-xl border-b border-white/10 shadow-2xl' : 'py-10 bg-transparent'}`}>
-            <div className="max-w-[1400px] mx-auto px-10 flex items-center justify-between">
+        <header className="absolute top-0 left-0 w-full z-50 py-8 bg-transparent">
+            <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between relative">
                 <motion.a
                     href="#home"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="flex items-center gap-4 group"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="flex items-center gap-2 group relative z-10"
                 >
-                    <span className="text-2xl font-black tracking-tighter uppercase font-body text-white">HS</span>
-                    <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-white/60 group-hover:text-white transition-colors">CREATIVE</span>
+                    <div className="flex flex-col items-start">
+                        <div className="flex items-baseline">
+                            <span className="text-2xl font-black tracking-tighter uppercase font-body text-white neural-glow-text">
+                                <span className="logo-accent">H</span>S
+                            </span>
+                        </div>
+                        <span className="cyber-badge group-hover:text-white transition-colors duration-500">CREATIVE</span>
+                    </div>
                 </motion.a>
 
-                {/* Desktop Nav - Centered */}
-                <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-                    {navLinks.map((link) => (
-                        <a
+                {/* Desktop Nav - Centered Pills */}
+                <nav className="hidden md:flex items-center gap-3 absolute left-1/2 -translate-x-1/2">
+                    {navLinks.map((link, i) => (
+                        <motion.a
                             key={link.name}
                             href={link.href}
-                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/70 hover:text-white transition-all duration-300"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="premium-nav-pill text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white"
                         >
                             {link.name}
-                        </a>
+                        </motion.a>
                     ))}
                 </nav>
 
                 {/* Hire Me Button */}
-                <div className="hidden md:block">
-                    <a
+                <div className="hidden md:block relative z-10">
+                    <motion.a
                         href="#contact"
-                        className="px-10 py-3.5 text-[10px] font-bold uppercase tracking-[0.3em] bg-white text-black hover:bg-brand-teal hover:text-white transition-all duration-500 rounded-sm"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="cta-button-premium"
                     >
                         Hire Me
-                    </a>
+                    </motion.a>
                 </div>
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden text-white"
+                    className="md:hidden text-white p-2 relative z-10"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
-                    {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
 
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 w-full h-screen bg-[#020617]/90 backdrop-blur-3xl z-[100] md:hidden flex flex-col pt-32 px-10"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="fixed inset-0 w-full h-screen bg-[#020617]/95 backdrop-blur-2xl z-[100] md:hidden flex flex-col pt-32 px-10"
                     >
                         {/* Mobile Header (HS Logo + Close) */}
-                        <div className="absolute top-0 left-0 w-full py-10 px-10 flex items-center justify-between">
-                            <div className="flex items-center gap-4">
-                                <span className="text-2xl font-black tracking-tighter uppercase font-body text-white">HS</span>
-                                <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-white/60">CREATIVE</span>
+                        <div className="absolute top-0 left-0 w-full py-8 px-6 flex items-center justify-between">
+                            <div className="flex items-baseline">
+                                <span className="text-2xl font-black tracking-tighter uppercase font-body text-white">
+                                    <span className="logo-accent">H</span>S
+                                </span>
+                                <span className="ml-3 text-[9px] font-bold tracking-[0.5em] uppercase text-white/40">CREATIVE</span>
                             </div>
                             <button
                                 className="text-white p-2"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                <X size={32} strokeWidth={1.5} />
+                                <X size={28} strokeWidth={1.5} />
                             </button>
                         </div>
 
                         {/* Centered Navigation */}
-                        <nav className="flex flex-col items-center justify-center flex-grow gap-12">
+                        <nav className="flex flex-col items-center justify-center flex-grow gap-10">
                             {navLinks.map((link, i) => (
                                 <motion.a
                                     key={link.name}
                                     href={link.href}
-                                    initial={{ opacity: 0, y: 30 }}
+                                    initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + (i * 0.1), duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-5xl font-medium text-white font-heading hover:text-brand-teal transition-colors tracking-tight"
+                                    className="text-4xl font-bold text-white font-body hover:text-brand-teal transition-colors tracking-tight uppercase"
                                 >
                                     {link.name}
                                 </motion.a>
@@ -107,21 +114,20 @@ const Header = () => {
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.6 }}
-                            className="pb-20 border-t border-white/10 pt-10 flex flex-col items-center gap-8"
+                            transition={{ delay: 0.5 }}
+                            className="pb-20 border-t border-white/5 pt-10 flex flex-col items-center gap-8"
                         >
-                            <div className="flex gap-10">
-                                <motion.a whileHover={{ y: -5 }} href="#" className="p-4 bg-white/5 rounded-full text-white/60 hover:text-white transition-all">
-                                    <Github size={24} strokeWidth={1.5} />
+                            <div className="flex gap-8">
+                                <motion.a whileHover={{ y: -5 }} href="#" className="p-3 bg-white/5 rounded-full text-white/40 hover:text-white transition-all">
+                                    <Github size={20} strokeWidth={1.5} />
                                 </motion.a>
-                                <motion.a whileHover={{ y: -5 }} href="#" className="p-4 bg-white/5 rounded-full text-white/60 hover:text-white transition-all">
-                                    <Linkedin size={24} strokeWidth={1.5} />
+                                <motion.a whileHover={{ y: -5 }} href="#" className="p-3 bg-white/5 rounded-full text-white/40 hover:text-white transition-all">
+                                    <Linkedin size={20} strokeWidth={1.5} />
                                 </motion.a>
-                                <motion.a whileHover={{ y: -5 }} href="#" className="p-4 bg-white/5 rounded-full text-white/60 hover:text-white transition-all">
-                                    <Mail size={24} strokeWidth={1.5} />
+                                <motion.a whileHover={{ y: -5 }} href="#" className="p-3 bg-white/5 rounded-full text-white/40 hover:text-white transition-all">
+                                    <Mail size={20} strokeWidth={1.5} />
                                 </motion.a>
                             </div>
-                            
                         </motion.div>
                     </motion.div>
                 )}

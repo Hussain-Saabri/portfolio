@@ -97,6 +97,126 @@
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
+.premium-nav-pill {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 8px 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-nav-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo-accent {
+  background: linear-gradient(135deg, #0F86A6 0%, #a21caf 100%);
+  color: #FFFFFF;
+  padding: 0 6px;
+  margin-left: -2px;
+  display: inline-block;
+  line-height: 1;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(15, 134, 166, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-accent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+.neural-glow-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
+               0 0 20px rgba(15, 134, 166, 0.2);
+  letter-spacing: -0.05em;
+  transition: all 0.5s ease;
+}
+
+.neural-glow-text:hover {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4),
+               0 0 30px rgba(15, 134, 166, 0.4);
+  color: #FFFFFF;
+}
+
+.cyber-badge {
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.6em;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 10px;
+}
+
+.cyber-badge::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: #0F86A6;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 8px #0F86A6;
+}
+
+.cta-button-premium {
+  background: #FFFFFF;
+  color: #020617;
+  padding: 12px 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+  border-radius: 4px;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.cta-button-premium:hover::before {
+  left: 100%;
+}
+
+.cta-button-premium:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
 .nebula-glow {
   position: absolute;
   filter: blur(80px);

@@ -80,7 +80,7 @@ const Hero = () => {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             href="#portfolio"
-                            className="w-full sm:w-auto px-14 py-6 bg-white text-black font-bold uppercase tracking-[0.3em] text-[10px] rounded-full hover:bg-brand-teal hover:text-white transition-all duration-500 flex items-center justify-center gap-4 group shadow-2xl"
+                            className="w-full sm:w-auto px-14 py-6  bg-white text-black font-bold uppercase tracking-[0.3em] text-[10px] rounded-full hover:bg-brand-teal hover:text-white transition-all duration-500 flex items-center justify-center gap-4 group shadow-2xl"
                         >
                             Explore Portfolio
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
