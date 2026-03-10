@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base-bg: #020617;
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
+  --accent-teal: #0F86A6;
+}
+
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+}
+
+@keyframes light-ray {
+
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2) rotate(10deg);
+  }
+}
+
+@keyframes mesh-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(5%, 10%) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-5%, 5%) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.premium-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #0F86A6 50%, #1A1A2E 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+.glass-blur {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.nebula-glow {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+  animation: float 10s ease-in-out infinite;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--base-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
