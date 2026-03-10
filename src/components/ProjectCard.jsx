@@ -5,7 +5,7 @@ import { ArrowUpRight } from 'lucide-react';
 const ProjectCard = ({ project }) => {
     return (
         <div className="group cursor-pointer">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-lg shadow-sm border border-slate-100 mb-6 transition-all duration-700">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-lg shadow-sm border border-slate-100 mb-4 md:mb-6 transition-all duration-700">
                 <img
                     src={project.image}
                     alt={project.title}

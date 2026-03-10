@@ -192,26 +192,6 @@
   overflow: hidden;
 }
 
-.cta-button-premium::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transition: 0.5s;
-}
-
-.cta-button-premium:hover::before {
-  left: 100%;
-}
-
 .cta-button-premium:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
@@ -237,7 +217,7 @@ body {
 }
 
 body {
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--base-bg);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;

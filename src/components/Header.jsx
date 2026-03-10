@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/logo.png';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 
 const Header = () => {
@@ -13,22 +14,18 @@ const Header = () => {
     ];
 
     return (
-        <header className="absolute top-0 left-0 w-full z-50 py-8 bg-transparent">
+        <header className="absolute top-0 left-0 w-full z-50 py-6 bg-transparent">
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between relative">
                 <motion.a
                     href="#home"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="flex items-center gap-2 group relative z-10"
+                    className="flex items-center group relative z-10"
                 >
-                    <div className="flex flex-col items-start">
-                        <div className="flex items-baseline">
-                            <span className="text-2xl font-black tracking-tighter uppercase font-body text-white neural-glow-text">
-                                <span className="logo-accent">H</span>S
-                            </span>
-                        </div>
-                        <span className="cyber-badge group-hover:text-white transition-colors duration-500">CREATIVE</span>
+                    <div className="flex items-baseline tracking-tight">
+                        <span className="text-2xl font-black text-white">HS</span>
+                        <span className="text-2xl font-light text-white/80 ml-1">Creative</span>
                     </div>
                 </motion.a>
 
@@ -79,11 +76,9 @@ const Header = () => {
                     >
                         {/* Mobile Header (HS Logo + Close) */}
                         <div className="absolute top-0 left-0 w-full py-8 px-6 flex items-center justify-between">
-                            <div className="flex items-baseline">
-                                <span className="text-2xl font-black tracking-tighter uppercase font-body text-white">
-                                    <span className="logo-accent">H</span>S
-                                </span>
-                                <span className="ml-3 text-[9px] font-bold tracking-[0.5em] uppercase text-white/40">CREATIVE</span>
+                            <div className="flex items-baseline tracking-tight">
+                                <span className="text-2xl font-black text-white">HS</span>
+                                <span className="text-2xl font-light text-white/80 ml-1">Creative</span>
                             </div>
                             <button
                                 className="text-white p-2"

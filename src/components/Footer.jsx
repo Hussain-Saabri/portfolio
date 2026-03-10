@@ -5,10 +5,9 @@ const Footer = () => {
     return (
         <footer className="py-20 bg-brand-light border-t border-slate-200">
             <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
-                <div className="flex items-center gap-2 mb-8">
-                    <span className="text-3xl font-black text-brand-navy tracking-tighter uppercase font-body">HS</span>
-                    <div className="w-[1px] h-6 bg-brand-navy/20"></div>
-                    <span className="text-sm font-bold text-brand-navy/60 tracking-[0.2em]">TECH</span>
+                <div className="flex items-center gap-1 mb-8">
+                    <span className="text-3xl font-black text-brand-navy tracking-tighter uppercase">HS</span>
+                    <span className="text-3xl font-light text-brand-navy/60 tracking-tight ml-1">Creative</span>
                 </div>
 
                 <div className="flex gap-6 mb-12">
@@ -34,7 +33,7 @@ const Footer = () => {
                 </div>
 
                 <p className="text-slate-400 font-medium text-center text-xs tracking-widest uppercase">
-                    © 2026 HS TECH. ALL RIGHTS RESERVED.
+                    © 2026 HS CREATIVE. ALL RIGHTS RESERVED.
                 </p>
             </div>
         </footer>

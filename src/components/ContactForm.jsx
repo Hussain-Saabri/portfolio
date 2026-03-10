@@ -36,9 +36,9 @@ const ContactForm = () => {
     };
 
     return (
-        <section id="contact" className="pt-16 pb-32 bg-white relative">
+        <section id="contact" className="pt-8 pb-32 bg-white relative">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
                     {/* Left - Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -46,28 +46,28 @@ const ContactForm = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="text-brand-teal font-bold tracking-[0.3em] uppercase text-xs mb-6 block font-body">
+                        <span className="text-brand-teal font-bold tracking-[0.3em] uppercase text-xs mb-4 md:mb-6 block font-body">
                             The Dialogue
                         </span>
-                        <h2 className="text-5xl md:text-6xl font-normal text-brand-navy font-heading leading-tight italic mb-8">
+                        <h2 className="text-4xl md:text-6xl font-normal text-brand-navy font-heading leading-tight italic mb-6 md:mb-8">
                             Initiate <span className="not-italic">Collaboration</span>
                         </h2>
-                        <p className="text-slate-500 font-body text-lg leading-relaxed mb-12 max-w-md">
+                        <p className="text-slate-500 font-body text-base md:text-lg leading-relaxed mb-6 md:mb-12 max-w-md">
                             Ready to transform your vision into an elegant digital reality? Let's discuss your next breakthrough.
                         </p>
 
-                        <div className="space-y-8">
+                        <div className="space-y-6 md:space-y-8 lg:mb-0">
                             {[
                                 { icon: Mail, label: "Email", value: "hscreative.contact@gmail.com" },
                                 { icon: Phone, label: "Phone", value: "9922841004" },
                                 { icon: MapPin, label: "Studio", value: "Goa" },
                             ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-6 group">
-                                    <div className="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center text-brand-navy group-hover:bg-brand-teal group-hover:text-white transition-all duration-500">
-                                        <item.icon size={20} />
+                                <div key={i} className="flex items-center gap-4 md:gap-6 group">
+                                    <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-light rounded-full flex items-center justify-center text-brand-navy group-hover:bg-brand-teal group-hover:text-white transition-all duration-500 shrink-0">
+                                        <item.icon size={18} />
                                     </div>
                                     <div>
-                                        <p className="text-brand-navy font-bold font-heading text-lg">{item.value}</p>
+                                        <p className="text-brand-navy font-bold font-heading text-base md:text-lg break-all">{item.value}</p>
                                     </div>
                                 </div>
                             ))}
@@ -80,7 +80,7 @@ const ContactForm = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="p-12 bg-brand-light rounded-sm shadow-xl shadow-brand-navy/5 border border-slate-100 relative overflow-hidden"
+                        className="p-6 md:p-12 bg-white rounded-xl shadow-xl shadow-brand-navy/5 border border-slate-100 relative overflow-hidden"
                     >
                         <AnimatePresence mode="wait">
                             {status === 'success' ? (
@@ -89,42 +89,42 @@ const ContactForm = () => {
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
-                                    className="flex flex-col items-center justify-center py-12 text-center"
+                                    className="flex flex-col items-center justify-center py-8 md:py-12 text-center"
                                 >
-                                    <CheckCircle2 size={64} className="text-emerald-500 mb-6" />
-                                    <h3 className="text-2xl font-bold text-brand-navy font-heading mb-2">Message Sent!</h3>
-                                    <p className="text-slate-500">I'll get back to you as soon as possible.</p>
+                                    <CheckCircle2 size={48} className="text-emerald-500 mb-4" />
+                                    <h3 className="text-xl md:text-2xl font-bold text-brand-navy font-heading mb-2">Message Sent!</h3>
+                                    <p className="text-slate-500 text-sm md:text-base">I'll get back to you as soon as possible.</p>
                                 </motion.div>
                             ) : (
-                                <form ref={form} onSubmit={sendEmail} className="space-y-8">
-                                    <div className="space-y-4">
+                                <form ref={form} onSubmit={sendEmail} className="space-y-6 md:space-y-8">
+                                    <div className="space-y-2 md:space-y-4">
                                         <label className="text-[10px] font-bold text-brand-navy uppercase tracking-widest pl-1">Full Name</label>
                                         <input
                                             type="text"
                                             name="user_name"
                                             required
                                             placeholder="Enter your name"
-                                            className="w-full px-6 py-5 bg-white border border-slate-200 outline-none text-brand-navy font-body text-sm focus:border-brand-teal transition-colors"
+                                            className="w-full px-4 md:px-6 py-4 md:py-5 bg-slate-50/50 border border-slate-200 outline-none text-brand-navy font-body text-sm focus:border-brand-teal focus:bg-white transition-all"
                                         />
                                     </div>
-                                    <div className="space-y-4">
+                                    <div className="space-y-2 md:space-y-4">
                                         <label className="text-[10px] font-bold text-brand-navy uppercase tracking-widest pl-1">Email Address</label>
                                         <input
                                             type="email"
                                             name="user_email"
                                             required
                                             placeholder="your@email.com"
-                                            className="w-full px-6 py-5 bg-white border border-slate-200 outline-none text-brand-navy font-body text-sm focus:border-brand-teal transition-colors"
+                                            className="w-full px-4 md:px-6 py-4 md:py-5 bg-slate-50/50 border border-slate-200 outline-none text-brand-navy font-body text-sm focus:border-brand-teal focus:bg-white transition-all"
                                         />
                                     </div>
-                                    <div className="space-y-4">
+                                    <div className="space-y-2 md:space-y-4">
                                         <label className="text-[10px] font-bold text-brand-navy uppercase tracking-widest pl-1">Message</label>
                                         <textarea
                                             rows="4"
                                             name="message"
                                             required
                                             placeholder="Tell me about your project"
-                                            className="w-full px-6 py-5 bg-white border border-slate-200 outline-none text-brand-navy font-body text-sm focus:border-brand-teal transition-colors resize-none"
+                                            className="w-full px-4 md:px-6 py-4 md:py-5 bg-slate-50/50 border border-slate-200 outline-none text-brand-navy font-body text-sm focus:border-brand-teal focus:bg-white transition-all resize-none"
                                         />
                                     </div>
 
@@ -142,7 +142,7 @@ const ContactForm = () => {
                                     <button
                                         type="submit"
                                         disabled={status === 'sending'}
-                                        className="w-full py-6 bg-brand-navy text-white text-xs font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:bg-brand-teal transition-all group shadow-lg shadow-brand-navy/10 disabled:opacity-70 disabled:cursor-not-allowed"
+                                        className="w-full py-5 md:py-6 bg-brand-navy text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center justify-center gap-3 md:gap-4 hover:bg-brand-teal transition-all group shadow-lg shadow-brand-navy/10 disabled:opacity-70 disabled:cursor-not-allowed"
                                     >
                                         {status === 'sending' ? (
                                             <>

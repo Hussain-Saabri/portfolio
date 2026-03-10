@@ -6,53 +6,55 @@ const HelpServices = () => {
     const services = [
         {
             title: "Web Platforms",
-            description: "High-performance, scalable web architectures built with React, Next.js, and Node.js.",
+            description: "High-performance, scalable architectures with React, Next.js, Node.js.",
             icon: Monitor,
         },
         {
             title: "Brand Strategy",
-            description: "Developing comprehensive digital identities that resonate with your target audience.",
+            description: "Comprehensive digital identities that resonate with your audience.",
             icon: Globe,
         },
         {
             title: "Interface Design",
-            description: "User-centric UI/UX design focusing on accessibility, elegance, and conversion.",
+            description: "User-centric UI/UX focused on accessibility, elegance, conversion.",
             icon: Layers,
         },
         {
             title: "Mobile Solutions",
-            description: "Seamless cross-platform mobile experiences for iOS and Android devices.",
+            description: "Seamless cross-platform experiences for iOS & Android.",
             icon: Smartphone,
         }
     ];
 
     return (
-        <section id="services" className="pt-16 pb-32 bg-brand-light relative">
-
-
+        <section id="services" className="pt-20 pb-10 bg-white border-y border-slate-100 relative">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="text-left mb-20 max-w-3xl">
-                    <motion.span
-                        initial={{ opacity: 0, y: 20 }}
+                {/* Header Section */}
+                <div className="text-center mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-brand-teal font-bold tracking-[0.3em] uppercase text-xs mb-6 block font-body"
+                        className="inline-block"
                     >
-                        Expertise
-                    </motion.span>
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight uppercase mb-4 relative inline-block">
+                            Expertise
+                            <span className="absolute -bottom-2 left-0 w-12 h-1 bg-cyan-500/50 rounded-full"></span>
+                        </h2>
+                    </motion.div>
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-6xl font-normal text-brand-navy font-heading leading-tight italic"
+                        className="text-gray-600 text-lg md:text-xl font-medium"
                     >
-                        Specialized Solutions <br />
-                        <span className="not-italic">for Modern Challenges</span>
-                    </motion.h2>
+                        Specialized Solutions for Modern Challenges
+                    </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+                {/* Services Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
@@ -60,19 +62,22 @@ const HelpServices = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="p-12 bg-white border border-slate-100 hover:border-brand-teal hover:z-10 hover:shadow-2xl hover:shadow-brand-navy/5 transition-all duration-500 group"
+                            whileHover={{ scale: 1.05 }}
+                            className="p-8 bg-white rounded-xl border border-slate-100 shadow-md hover:shadow-xl hover:border-cyan-200 transition-all duration-300 group flex flex-col items-center text-center"
                         >
-
-                            <div className="w-16 h-16 rounded-full bg-brand-light flex items-center justify-center mb-10 group-hover:bg-brand-navy group-hover:text-white transition-colors duration-500">
-                                <service.icon size={28} strokeWidth={1.5} />
+                            <div className="mb-6 text-cyan-500 group-hover:scale-110 transition-transform duration-300">
+                                <service.icon size={32} strokeWidth={1.5} />
                             </div>
 
-                            <h3 className="text-2xl font-bold text-brand-navy font-heading mb-4">
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">
                                 {service.title}
                             </h3>
-                            <p className="text-sm text-slate-500 font-body leading-relaxed group-hover:text-slate-600">
+                            <p className="text-gray-700 text-sm leading-relaxed">
                                 {service.description}
                             </p>
+                            
+                            {/* Subtle accent glow on hover */}
+                            <div className="absolute inset-0 rounded-xl bg-cyan-50/0 group-hover:bg-cyan-50/50 -z-10 transition-colors duration-300"></div>
                         </motion.div>
                     ))}
                 </div>
