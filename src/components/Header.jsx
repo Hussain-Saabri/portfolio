@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/logo.png';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -105,24 +104,20 @@ const Header = () => {
                             ))}
                         </nav>
 
-                        {/* Social Footer */}
+                        {/* Hire Me (Mobile) */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.5 }}
-                            className="pb-20 border-t border-white/5 pt-10 flex flex-col items-center gap-8"
+                            className="pb-20 flex flex-col items-center"
                         >
-                            <div className="flex gap-8">
-                                <motion.a whileHover={{ y: -5 }} href="#" className="p-3 bg-white/5 rounded-full text-white/40 hover:text-white transition-all">
-                                    <Github size={20} strokeWidth={1.5} />
-                                </motion.a>
-                                <motion.a whileHover={{ y: -5 }} href="#" className="p-3 bg-white/5 rounded-full text-white/40 hover:text-white transition-all">
-                                    <Linkedin size={20} strokeWidth={1.5} />
-                                </motion.a>
-                                <motion.a whileHover={{ y: -5 }} href="#" className="p-3 bg-white/5 rounded-full text-white/40 hover:text-white transition-all">
-                                    <Mail size={20} strokeWidth={1.5} />
-                                </motion.a>
-                            </div>
+                            <a 
+                                href="#contact" 
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="cta-button-premium inline-block"
+                            >
+                                Hire Me
+                            </a>
                         </motion.div>
                     </motion.div>
                 )}
