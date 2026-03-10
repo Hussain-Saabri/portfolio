@@ -20,10 +20,10 @@ const ProjectGrid = () => {
         },
         {
             id: 3,
-            title: "Corporate Identity System",
-            category: "Branding",
-            image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=2071&auto=format&fit=crop",
-            description: "Complete visual language for a sustainable energy startup."
+            title: "SaaS Dashboard Architecture",
+            category: "Web Development",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+            description: "High-performance data visualization and analytics dashboard for enterprise scale."
         },
         {
             id: 4,
